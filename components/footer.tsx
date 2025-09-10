@@ -31,8 +31,9 @@ export function Footer() {
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-orange-200/50 shadow-xl">
               <p className="text-amber-800 text-lg font-medium italic mb-2">"अहिंसा परमो धर्मः"</p>
               <div className="flex flex-wrap justify-center gap-4 text-sm text-amber-700">
+                  <span className="bg-orange-100/80 px-3 py-1 rounded-full">अहिंसा</span>
                 <span className="bg-orange-100/80 px-3 py-1 rounded-full">सत्य</span>
-                <span className="bg-amber-100/80 px-3 py-1 rounded-full">अस्तेय</span>
+                <span className="bg-amber-100/80 px-3 py-1 rounded-full">अचौर्य</span>
                 <span className="bg-yellow-100/80 px-3 py-1 rounded-full">ब्रह्मचर्य</span>
                 <span className="bg-orange-100/80 px-3 py-1 rounded-full">अपरिग्रह</span>
               </div>
