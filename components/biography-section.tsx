@@ -120,7 +120,7 @@ export function BiographySection() {
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-amber-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                   <div className="relative overflow-hidden rounded-3xl border-4 border-gradient-to-br from-orange-300 to-amber-300 shadow-2xl">
                     <img
-                      src="/7.jpg"
+                      src="/guruji image/g24.jpg"
                       alt="मुनि श्री विलोक सागर जी महाराज"
                       className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                     />

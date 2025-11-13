@@ -1,86 +1,270 @@
-"use client"
+"use client";
 
-import { Card } from "@/components/ui/card"
-import { useEffect, useState } from "react"
-import { ChevronLeft, ChevronRight, X, Camera } from "lucide-react"
+import { Card } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, X, Camera } from "lucide-react";
 
 const galleryImages = [
   {
+    src: "/guruji image/g41.jpg",
+  },
+  {
+    src: "/guruji image/g42.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g47.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g46.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g45.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g44.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g43.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g15.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g25.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g39.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g38.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g37.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g36.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g35.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g34.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g33.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g32.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g31.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g30.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g29.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g28.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g22.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g26.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g25.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g24.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
     src: "/images/guruji-main.jpg",
     alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
-    caption: "ध्यान मुद्रा में गुरुजी",
   },
   {
     src: "/4.jpg",
     alt: "गुरुजी शिष्यों को उपदेश देते हुए",
-    caption: "धर्म उपदेश",
   },
   {
     src: "/7.jpg",
     alt: "मंदिर में गुरुजी",
-    caption: "मंदिर में पूजा अर्चना",
   },
   {
     src: "/9.jpg",
     alt: "भक्तों के साथ गुरुजी",
-    caption: "भक्तों के साथ",
   },
   {
-    src: "/images/guruji-main.jpg",
+    src: "/guruji image/g1.jpg",
     alt: "शास्त्र अध्ययन करते गुरुजी",
-    caption: "शास्त्र अध्ययन",
   },
   {
-    src: "/12.jpg",
+    src: "/guruji image/g2.jpg",
     alt: "आशीर्वाद देते गुरुजी",
-    caption: "आशीर्वाद समारोह",
   },
-]
+  {
+    src: "/guruji image/g3.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g4.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g5.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g6.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g7.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g8.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g9.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g1.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g11.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g12.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g14.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g15.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g17.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g18.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g19.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g20.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g21.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g22.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g23.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+  {
+    src: "/guruji image/g50.jpg",
+    alt: "मुनि श्री विलोक सागर जी महाराज ध्यान मुद्रा में",
+  },
+];
+
 
 export function PhotoGallery() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const element = document.getElementById("gallery")
-    if (element) observer.observe(element)
+    const element = document.getElementById("gallery");
+    if (element) observer.observe(element);
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.ceil(galleryImages.length / 3))
-  }
+    setCurrentSlide((prev) => (prev + 1) % Math.ceil(galleryImages.length / 3));
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.ceil(galleryImages.length / 3)) % Math.ceil(galleryImages.length / 3))
-  }
+    setCurrentSlide(
+      (prev) =>
+        (prev - 1 + Math.ceil(galleryImages.length / 3)) %
+        Math.ceil(galleryImages.length / 3)
+    );
+  };
 
   const openModal = (index: number) => {
-    setSelectedImage(index)
-  }
+    setSelectedImage(index);
+  };
 
   const closeModal = () => {
-    setSelectedImage(null)
-  }
+    setSelectedImage(null);
+  };
 
   const nextImage = () => {
-    setSelectedImage((prev) => (prev !== null ? (prev + 1) % galleryImages.length : 0))
-  }
+    setSelectedImage((prev) =>
+      prev !== null ? (prev + 1) % galleryImages.length : 0
+    );
+  };
 
   const prevImage = () => {
-    setSelectedImage((prev) => (prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : 0))
-  }
+    setSelectedImage((prev) =>
+      prev !== null
+        ? (prev - 1 + galleryImages.length) % galleryImages.length
+        : 0
+    );
+  };
 
   return (
     <section
@@ -95,7 +279,11 @@ export function PhotoGallery() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className={`transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div
+          className={`transition-all duration-1000 ${
+            isVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
           <div className="text-center mb-20">
             <div className="flex justify-center items-center mb-6">
               <div className="bg-gradient-to-br from-orange-400 via-amber-400 to-yellow-400 p-4 rounded-2xl shadow-2xl">
@@ -131,43 +319,45 @@ export function PhotoGallery() {
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {Array.from({ length: Math.ceil(galleryImages.length / 3) }).map((_, slideIndex) => (
+                {Array.from({
+                  length: Math.ceil(galleryImages.length / 3),
+                }).map((_, slideIndex) => (
                   <div key={slideIndex} className="w-full flex-shrink-0 px-2">
                     <div className="grid md:grid-cols-3 gap-8">
-                      {galleryImages.slice(slideIndex * 3, slideIndex * 3 + 3).map((image, index) => {
-                        const actualIndex = slideIndex * 3 + index
-                        return (
-                          <Card
-                            key={actualIndex}
-                            className="group cursor-pointer overflow-hidden bg-white/80 backdrop-blur-sm border-2 border-orange-200/50 hover:border-amber-400/80 transition-all duration-500 hover:shadow-2xl transform hover:scale-105 hover:-rotate-1"
-                            onClick={() => openModal(actualIndex)}
-                          >
-                            <div className="relative overflow-hidden rounded-2xl">
-                              <img
-                                src={
-                                  image.src ||
-                                  "/placeholder.svg?height=300&width=400&query=spiritual jain monk meditation"
-                                }
-                                alt={image.alt}
-                                className="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                              <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {galleryImages
+                        .slice(slideIndex * 3, slideIndex * 3 + 3)
+                        .map((image, index) => {
+                          const actualIndex = slideIndex * 3 + index;
+                          return (
+                            <Card
+                              key={actualIndex}
+                              className="group cursor-pointer overflow-hidden bg-white/80 backdrop-blur-sm border-2 border-orange-200/50 hover:border-amber-400/80 transition-all duration-500 hover:shadow-2xl transform hover:scale-105 hover:-rotate-1"
+                              onClick={() => openModal(actualIndex)}
+                            >
+                              <div className="relative overflow-hidden rounded-2xl">
+                                <img
+                                  src={
+                                    image.src ||
+                                    "/placeholder.svg?height=300&width=400&query=spiritual jain monk meditation"
+                                  }
+                                  alt={image.alt}
+                                  className="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                              <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                                <div className="bg-black/50 rounded-xl p-4">
-                                  <p className="text-sm font-bold text-center">{image.caption}</p>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                
+                                </div>
+
+                                {/* Hover overlay icon */}
+                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100">
+                                  <Camera className="w-5 h-5 text-amber-600" />
                                 </div>
                               </div>
-
-                              {/* Hover overlay icon */}
-                              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100">
-                                <Camera className="w-5 h-5 text-amber-600" />
-                              </div>
-                            </div>
-                          </Card>
-                        )
-                      })}
+                            </Card>
+                          );
+                        })}
                     </div>
                   </div>
                 ))}
@@ -175,17 +365,19 @@ export function PhotoGallery() {
             </div>
 
             <div className="flex justify-center mt-12 space-x-3">
-              {Array.from({ length: Math.ceil(galleryImages.length / 3) }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
-                    currentSlide === index
-                      ? "bg-gradient-to-r from-orange-400 to-amber-400 shadow-lg"
-                      : "bg-amber-200 hover:bg-amber-300"
-                  }`}
-                />
-              ))}
+              {Array.from({ length: Math.ceil(galleryImages.length / 3) }).map(
+                (_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                      currentSlide === index
+                        ? "bg-gradient-to-r from-orange-400 to-amber-400 shadow-lg"
+                        : "bg-amber-200 hover:bg-amber-300"
+                    }`}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
@@ -228,12 +420,14 @@ export function PhotoGallery() {
 
             <div className="absolute bottom-6 left-6 right-6 text-center">
               <div className="bg-black/60 backdrop-blur-sm rounded-2xl px-6 py-4 inline-block">
-                <p className="text-white text-lg font-semibold">{galleryImages[selectedImage].caption}</p>
+                <p className="text-white text-lg font-semibold">
+                  {galleryImages[selectedImage].caption}
+                </p>
               </div>
             </div>
           </div>
         </div>
       )}
     </section>
-  )
+  );
 }
