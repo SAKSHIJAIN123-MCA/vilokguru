@@ -1,3 +1,5 @@
+// Updated NiryapakSection.jsx
+
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,12 +63,12 @@ export function NiryapakSection() {
                     निष्ठा और समर्पण का सम्मान
                   </h3>
                   <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-medium">
-                    दमोह के पास मुड़ेरी गांव के कभी ब्र• चक्रेश भैया संघ के बड़े
-                    लाडले भैया थे, अब वह गुरु आज्ञा से ही हमारे ही संघ के पूज्य
-                    आर्जव सागर जी के संघ में दीक्षित मुनि हैं, जिन्हें अब उनके
-                    गुरु ने <strong>निर्यापक पद</strong> से सुशोभित किया है।
-                    वह आज भी कोई भी कार्यक्रम करते हैं तो गुरु के साथ
-                    <strong> आचार्य भगवान समय सागर जी</strong> का आशीर्वाद लेते हैं।❣
+                    दमोह के पास मुड़ेरी गांव के कभी ब्र• चक्रेश भैया संघ के बड़े लाडले भैया थे, अब वह गुरु आज्ञा से ही हमारे ही संघ के पूज्य आर्जव सागर जी के संघ में दीक्षित मुनि हैं, जिन्हें अब उनके गुरु ने <strong>निर्यापक पद</strong> से सुशोभित किया है। वह आज भी कोई भी कार्यक्रम करते हैं तो गुरु के साथ<strong> आचार्य भगवान समय सागर जी</strong> का आशीर्वाद लेते हैं।❣ <br /><br />
+
+                    <strong>आचार्य श्री 108 आर्जव सागर जी महाराज</strong> ने
+                    <strong> 26 अक्टूबर 2025</strong> को <strong>इंदौर, उदयनगर</strong> में
+                    निर्यापक पद की घोषणा की और <strong>मुनि श्री विलोक सागर जी महाराज</strong>,
+                    अब हुए — <strong>निर्यापक श्रमण मुनि श्री 108 विलोक सागर जी महाराज</strong>।
                   </p>
                 </CardContent>
               </Card>
@@ -75,21 +77,19 @@ export function NiryapakSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-base sm:text-lg font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-full shadow-lg shadow-orange-200/40 transition-all duration-300 hover:scale-105 text-center"
+                  className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white text-base sm:text-lg font-semibold px-5 sm:px-7 py-3 sm:py-5 rounded-full shadow-lg shadow-orange-200/40 transition-all duration-300 hover:scale-105 text-center"
                 >
                   <a
                     href="/guruji image/video.mp4"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center"
+                    className="flex items-center gap-2 text-center whitespace-normal max-w-[230px] sm:max-w-none"
                   >
-                    <PlayCircle className="w-5 sm:w-6 h-5 sm:h-6" />
-                    <span>
-                      आचार्य श्री आर्जव सागर जी महाराज के मुख से सुने
+                    <PlayCircle className="w-4 sm:w-6 h-4 sm:h-6 flex-shrink-0" />
+                    <span className="text-sm sm:text-lg leading-tight">
+                  सुने
                       <br className="hidden sm:block" />
-                      <span className="font-bold">
-                        निर्यापक पद की घोषणा
-                      </span>
+                      <span className="font-bold">निर्यापक पद की घोषणा</span>
                     </span>
                   </a>
                 </Button>

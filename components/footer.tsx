@@ -43,7 +43,7 @@ export function Footer() {
           {/* Copyright section */}
           <div className="border-t border-gradient-to-r from-orange-200 via-amber-200 to-yellow-200 pt-8 animate-fade-in-up delay-500">
             <p className="text-amber-700 text-base font-medium mb-2">
-              © २०२५ मुनि श्री विलोक सागर जी महाराज। सभी अधिकार सुरक्षित।
+              © 2025 निर्यापक श्रमण मुनि श्री 108 विलोक सागर जी महाराज। सभी अधिकार सुरक्षित।
             </p>
             <p className="text-amber-600 text-sm">जैन धर्म की शाश्वत शिक्षाओं का प्रसार</p>
           </div>

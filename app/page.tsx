@@ -6,6 +6,8 @@ import { Footer } from "@/components/footer"
 import { NiryapakSection } from "@/components/niryapak"
 import { ChaturmasSection } from "@/components/chaturmas"
 import { VideoGallery } from "@/components/video-gallery"
+import PravachanGallery from "@/components/pravachan-gallery"
+import VeershashnodayaGallery from "@/components/veer-gallery"
 
 export default function Home() {
   return (
@@ -13,10 +15,12 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <BiographySection />
-      <ChaturmasSection/>
+     <PravachanGallery/>
       <PhotoGallery />
       <NiryapakSection/>
       <VideoGallery/>
+       <ChaturmasSection/>
+       <VeershashnodayaGallery/>
       <Footer />
     </main>
   )

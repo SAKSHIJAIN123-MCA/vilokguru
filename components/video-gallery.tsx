@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X, PlayCircle } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, PlayCircle } from 'lucide-react';
+import Link from "next/link";
 
 const videoGallery = [
   {
@@ -15,7 +16,7 @@ const videoGallery = [
     thumbnail: "/guruji image/g22.jpg",
     title: "दीक्षा दिवस",
   },
-    {
+  {
     src: "/guruji image/g16_video.mp4",
     thumbnail: "/guruji image/g28.jpg",
     title: "आहारचर्या",
@@ -33,7 +34,7 @@ const videoGallery = [
   {
     src: "/guruji image/5.mp4",
     thumbnail: "/guruji image/g18.jpg",
-    title: " पिच्छी प्राप्तकर्ता परिवार",
+    title: "पिच्छी प्राप्तकर्ता परिवार",
   },
   {
     src: "/guruji image/6.mp4",
@@ -50,10 +51,15 @@ const videoGallery = [
     thumbnail: "/guruji image/g3.jpg",
     title: "विहार",
   },
-    {
+  {
     src: "/guruji image/1.mp4",
     thumbnail: "/guruji image/g29.jpg",
     title: "आहारचर्या",
+  },
+  {
+    src: "/guruji image/morena.mp4",
+    thumbnail: "/guruji image/g21.jpg",
+    title: "भव्य आगवानी",
   },
 ];
 
@@ -93,7 +99,6 @@ export function VideoGallery() {
       id="videos"
       className="relative py-24 px-6 bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 overflow-hidden"
     >
-      {/* Background Glow */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-amber-400 to-yellow-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -105,12 +110,20 @@ export function VideoGallery() {
             isVisible ? "animate-fade-in-up" : "opacity-0"
           }`}
         >
-          {/* Heading */}
           <div className="text-center mb-20">
             <div className="flex justify-center items-center mb-6">
               <div className="bg-gradient-to-br from-orange-400 via-amber-400 to-yellow-400 p-4 rounded-2xl shadow-2xl">
                 <PlayCircle className="w-8 h-8 text-white" />
               </div>
+            </div>
+            <div className="flex justify-between items-start mb-6">
+              <div></div>
+              <Link
+                href="/videos"
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 text-white font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                सभी वीडियो देखें
+              </Link>
             </div>
             <h2 className="text-4xl md:text-6xl font-bold text-orange-600 mb-6 drop-shadow-sm">
               🎥 वीडियो गैलरी
@@ -120,7 +133,6 @@ export function VideoGallery() {
             </p>
           </div>
 
-          {/* Controls */}
           <div className="flex justify-between items-center mb-8">
             <button
               onClick={prevSlide}
@@ -136,7 +148,6 @@ export function VideoGallery() {
             </button>
           </div>
 
-          {/* Video Grid */}
           <div className="overflow-hidden rounded-3xl">
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -159,7 +170,7 @@ export function VideoGallery() {
                           >
                             <div className="relative overflow-hidden rounded-2xl">
                               <img
-                                src={video.thumbnail}
+                                src={video.thumbnail || "/placeholder.svg"}
                                 alt={video.title}
                                 className="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700"
                               />
@@ -179,7 +190,6 @@ export function VideoGallery() {
             </div>
           </div>
 
-          {/* Pagination Dots */}
           <div className="flex justify-center mt-12 space-x-3">
             {Array.from({ length: Math.ceil(videoGallery.length / 3) }).map(
               (_, index) => (
@@ -198,7 +208,6 @@ export function VideoGallery() {
         </div>
       </div>
 
-      {/* Modal (Video Player) */}
       {selectedVideo !== null && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="relative max-w-5xl w-full">

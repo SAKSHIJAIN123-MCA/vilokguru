@@ -2,9 +2,10 @@
 
 import { Card } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X, Camera } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Camera } from 'lucide-react';
+import Link from "next/link";
 
-const galleryImages = [
+export const galleryImages = [
   {
     src: "/guruji image/g41.jpg",
   },
@@ -210,7 +211,6 @@ const galleryImages = [
   },
 ];
 
-
 export function PhotoGallery() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -271,12 +271,6 @@ export function PhotoGallery() {
       id="gallery"
       className="relative py-15 px-4 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 overflow-hidden"
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-amber-400 to-yellow-400 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div
@@ -290,7 +284,16 @@ export function PhotoGallery() {
                 <Camera className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold  text-orange-600 mb-6 drop-shadow-sm">
+            <div className="flex justify-between items-start mb-6">
+              <div></div>
+              <Link
+                href="/images"
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 to-amber-400 text-white font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+              >
+                सभी इमेज देखें
+              </Link>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-bold text-orange-600 mb-6 drop-shadow-sm">
               फोटो गैलरी
             </h2>
             <p className="text-xl md:text-2xl text-amber-700 font-medium text-balance max-w-3xl mx-auto">
@@ -339,16 +342,14 @@ export function PhotoGallery() {
                                   src={
                                     image.src ||
                                     "/placeholder.svg?height=300&width=400&query=spiritual jain monk meditation"
-                                  }
+                                   || "/placeholder.svg"}
                                   alt={image.alt}
                                   className="w-full h-72 object-cover group-hover:scale-125 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-yellow-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                                
-                                </div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
 
                                 {/* Hover overlay icon */}
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-0 group-hover:scale-100">
@@ -412,7 +413,7 @@ export function PhotoGallery() {
                 src={
                   galleryImages[selectedImage].src ||
                   "/placeholder.svg?height=600&width=800&query=spiritual jain monk meditation"
-                }
+                 || "/placeholder.svg"}
                 alt={galleryImages[selectedImage].alt}
                 className="max-w-full max-h-[80vh] object-contain rounded-2xl"
               />
