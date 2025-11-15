@@ -47,6 +47,8 @@ export function Footer() {
             </p>
             <p className="text-amber-600 text-sm">जैन धर्म की शाश्वत शिक्षाओं का प्रसार</p>
           </div>
+
+           <div>  {<p className="text-center  text-gray-700 text-xl mt-4 font-bold">Designed by Sakshi Jain</p>}</div>
         </div>
       </div>
     </footer>
