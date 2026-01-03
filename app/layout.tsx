@@ -1,16 +1,32 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
-import { Suspense } from "react"
-import "./globals.css"
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import './globals.css'
+
+const _geist = Geist({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "मुनि श्री विलोक सागर जी महाराज | Jain Saint",
-  description: "मुनि श्री विलोक सागर जी महाराज - जैन धर्म के महान संत एवं आध्यात्मिक गुरु का आधिकारिक वेबसाइट",
-  generator: "v0.app",
-  keywords: "जैन, मुनि, संत, आध्यात्म, धर्म, विलोक सागर",
+  title: 'Naresh Generator Service',
+  description: 'Naresh Generator Service',
+  generator: 'Sakshi Jain',
+  icons: {
+    icon: [
+      {
+        url: '/logo.jpg',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/logo.jpg',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/logo.jpg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/logo.jpg',
+  },
 }
 
 export default function RootLayout({
@@ -19,9 +35,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="hi">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+    <html lang="en">
+      <body className={`font-sans antialiased`}>
+        {children}
         <Analytics />
       </body>
     </html>
